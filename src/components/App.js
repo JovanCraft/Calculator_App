@@ -1,11 +1,11 @@
-import React from 'react';
-
+import React, { useReducer } from 'react';
 import './App.css';
-
+import reducer, { initialState } from '../reducers/index';
 import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
 
 function App() {
+  const [ state, dispatch ] = useReducer(reducer, initialState)
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -15,13 +15,13 @@ function App() {
       <div className = "container row mt-5">
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
-            
+
             <TotalDisplay value={0}/>
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
+              <span id="operation"><b>Operation:</b> {state.operation}</span>
               <span id="memory"><b>Memory:</b> 0</span>
             </div>
-            
+
             <div className="row">
               <CalcButton value={"M+"}/>
               <CalcButton value={"MR"}/>
