@@ -3,9 +3,14 @@ import './App.css';
 import reducer, { initialState } from '../reducers/index';
 import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
+import { addOne } from '../actions/index';
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState)
+
+  const OneClickHandler = () => {
+    dispatch(addOne())
+  }
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -29,7 +34,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
+              <CalcButton value={1} onClick={OneClickHandler}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
