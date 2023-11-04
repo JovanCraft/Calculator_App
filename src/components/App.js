@@ -3,7 +3,7 @@ import './App.css';
 import reducer, { initialState } from '../reducers/index';
 import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
-import { applyNumber, changeOperator } from '../actions/index';
+import { applyNumber, changeOperator, clearDisplay } from '../actions/index';
 
 
 function App() {
@@ -16,6 +16,10 @@ function App() {
 
   const operatorChangeHandler = (operator) => {
     dispatch(changeOperator(operator))
+  }
+
+  const getRidOfEverything = () => {
+    dispatch(clearDisplay())
   }
 
   return (
@@ -65,7 +69,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton value={"CE"} onClick={() => getRidOfEverything()}/>
             </div>
 
           </form>
