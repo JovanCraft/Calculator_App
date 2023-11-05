@@ -3,7 +3,7 @@ import './App.css';
 import reducer, { initialState } from '../reducers/index';
 import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
-import { applyNumber, changeOperator, clearDisplay } from '../actions/index';
+import { applyNumber, changeOperator, clearDisplay, setTotalToMemory } from '../actions/index';
 
 
 function App() {
@@ -20,6 +20,10 @@ function App() {
 
   const getRidOfEverything = () => {
     dispatch(clearDisplay())
+  }
+
+  const memoryAdd = () => {
+    dispatch(setTotalToMemory())
   }
 
   return (
@@ -39,7 +43,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"}/>
+              <CalcButton value={"M+"} onClick={memoryAdd}/>
               <CalcButton value={"MR"}/>
               <CalcButton value={"MC"}/>
             </div>
@@ -69,7 +73,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"} onClick={() => getRidOfEverything()}/>
+              <CalcButton value={"CE"} onClick={getRidOfEverything}/>
             </div>
 
           </form>
