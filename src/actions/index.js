@@ -3,6 +3,7 @@ export const CLEAR_DISPLAY = 'CLEAR_DISPLAY'
 export const APPLY_NUMBER = "APPLY_NUMBER";
 export const CHANGE_OPERATION = "CHANGE_OPERATION";
 export const SET_TOTAL_TO_MEMORY = 'SET_TOTAL_TO_MEMORY'
+export const APPLY_MEMORY = 'APPLY_MEMORY'
 
 export const addOne = () => {
     return({type:ADD_ONE});
@@ -22,4 +23,8 @@ export const clearDisplay = () => {
 
 export const setTotalToMemory = () => {
     return ({type:SET_TOTAL_TO_MEMORY})
+}
+
+export const applyMemory = () => {
+    return ({type:APPLY_MEMORY})
 }
